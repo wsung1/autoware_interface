@@ -24,7 +24,6 @@ add_executable(
 ament_target_dependencies(
   autoware_interface_node
   rclcpp
-  roscco_msgs
   std_msgs
   autoware_auto_vehicle_msgs
   autoware_auto_control_msgs

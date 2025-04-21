@@ -22,22 +22,22 @@ class AutowareInterface : public rclcpp::Node
         explicit AutowareInterface();
 
     private:
-        rclcpp::Subscription<autoware_auto_control_msgs::msg::AckermannControlCommand>::SharedPtr AW_speed_angle_command_sub_;
-        rclcpp::Subscription<autoware_auto_vehicle_msgs::msg::GearCommand>::SharedPtr AW_gear_command_sub_;
-        rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr TC_speed_status_sub_;
-        rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr TC_angle_status_sub_;
+        rclcpp::Subscription<autoware_auto_control_msgs::msg::AckermannControlCommand>::SharedPtr speed_angle_command_sub_;
+        rclcpp::Subscription<autoware_auto_vehicle_msgs::msg::GearCommand>::SharedPtr gear_command_sub_;
+        rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr speed_status_sub_;
+        rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr angle_status_sub_;
         
-        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr TC_speed_command_pub_;
-        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr TC_angle_command_pub_;
-        rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr CAN_gear_command_pub_;
-        rclcpp::Publisher<autoware_auto_vehicle_msgs::msg::VelocityReport>::SharedPtr AW_speed_status_pub_;
-        rclcpp::Publisher<autoware_auto_vehicle_msgs::msg::SteeringReport>::SharedPtr AW_angle_status_pub_;
-        rclcpp::Publisher<autoware_auto_vehicle_msgs::msg::ControlModeReport>::SharedPtr AW_control_mode_pub_;
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr speed_command_pub_;
+        rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr angle_command_pub_;
+        rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr gear_command_pub_;
+        rclcpp::Publisher<autoware_auto_vehicle_msgs::msg::VelocityReport>::SharedPtr velocity_status_pub_;
+        rclcpp::Publisher<autoware_auto_vehicle_msgs::msg::SteeringReport>::SharedPtr steering_tire_status_pub_;
+        rclcpp::Publisher<autoware_auto_vehicle_msgs::msg::ControlModeReport>::SharedPtr control_mode_pub_;
         rclcpp::TimerBase::SharedPtr timer_;
 
-        double AW_speed_command_ = 0.0;
-        double AW_angle_command_ = 0.0;
-        int AW_gear_command_ = 0;
+        double speed_command_ = 0.0;
+        double angle_command_ = 0.0;
+        int gear_command_ = 0;
         double steering_angle_ = 0.0;
         double vehicle_speed_ = 0.0;
 
